@@ -80,7 +80,7 @@ export default function Sidebar() {
               }`}
             />
             <span className={apiOnline ? 'text-emerald-400 font-medium' : 'text-rose-400'}>
-              API {apiOnline ? 'Online (:5000)' : 'Connecting...'}
+              API {apiOnline ? 'Connected' : 'Connecting...'}
             </span>
           </div>
           <span className="text-[10px] font-mono text-slate-500">v1.0</span>
