@@ -1,11 +1,15 @@
 import { Product, Order, Company, LedgerTransaction, AnalyticsSummary } from '../types';
 
 const getDefaultApiUrl = (): string => {
-  if (process.env.NEXT_PUBLIC_API_URL) {
-    return process.env.NEXT_PUBLIC_API_URL;
+  let url = process.env.NEXT_PUBLIC_API_URL;
+  if (url) {
+    if (url.includes('elemark-api.onrender.com')) {
+      url = url.replace('elemark-api.onrender.com', 'elemark-api-1.onrender.com');
+    }
+    return url;
   }
   if (typeof window !== 'undefined' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
-    return 'https://elemark-api.onrender.com/api';
+    return 'https://elemark-api-1.onrender.com/api';
   }
   return 'http://localhost:5000/api';
 };
